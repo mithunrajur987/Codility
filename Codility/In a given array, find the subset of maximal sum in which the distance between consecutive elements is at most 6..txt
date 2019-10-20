@@ -1,0 +1,23 @@
+// you can also use imports, for example:
+ import java.util.*;
+
+// you can write to stdout for debugging purposes, e.g.
+// System.out.println("this is a debug message");
+
+class Solution {
+     public int solution(int[] a) {
+        final int[] m = new int[a.length];
+        m[0] = a[0];
+        for (int i = 1; i < a.length; i++) {
+            int j = 1;
+            m[i] = Integer.MIN_VALUE;
+            while (j < 7 && i - j >= 0) {
+                if (m[i] < a[i] + m[i - j]) {
+                    m[i] = a[i] + m[i - j];
+                }
+                j++;
+            }
+        }
+        return m[m.length - 1];
+    }
+}

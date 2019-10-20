@@ -1,0 +1,30 @@
+// you can also use imports, for example:
+  import java.util.*;
+
+// you can write to stdout for debugging purposes, e.g.
+// System.out.println("this is a debug message");
+
+class Solution {
+    public int solution(int X, int[] A) {
+         int list[] = A;
+        int sum = 0;
+        int searchedValue = X;
+
+        List<Integer> arrayList = new ArrayList<Integer>();
+
+        for (int iii = 0; iii < list.length; iii++) {
+
+            if (list[iii] <= searchedValue && !arrayList.contains(list[iii])) {
+                sum += list[iii];
+                arrayList.add(list[iii]);
+            }
+            if (list[iii] == searchedValue) {
+                if (sum == searchedValue * (searchedValue + 1) / 2) {
+                    return iii;
+                }
+            }
+        }
+        return -1;
+    }
+     
+}

@@ -1,0 +1,38 @@
+// you can also use imports, for example:
+  import java.util.*;
+
+// you can write to stdout for debugging purposes, e.g.
+// System.out.println("this is a debug message");
+
+class Solution {
+    public int solution(int[] A, int[] B) {
+        if(A == null || B == null || A.length != B.length) {
+			return -1;
+		}
+		
+		Stack<Integer> downstream = new Stack<>(); 
+		int alive = 0;
+		
+		for(int i = 0; i < A.length; i++) {
+			if(B[i] == 0) {
+				while(!downstream.isEmpty()) {
+					if(downstream.peek() < A[i]) {
+						downstream.pop();
+					} else {
+						break;
+					}
+				}
+				
+				if(downstream.isEmpty()) {
+					alive++;
+				}
+			} else {
+				downstream.push(A[i]);
+			}
+		}
+		
+		alive += downstream.size();
+		
+		return alive;
+    }
+}

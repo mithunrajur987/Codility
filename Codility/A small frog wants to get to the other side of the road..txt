@@ -1,0 +1,24 @@
+// you can also use imports, for example:
+import java.util.*;
+
+// you can write to stdout for debugging purposes, e.g.
+// System.out.println("this is a debug message");
+
+class Solution {
+    public int solution(int X, int Y, int D) {
+      int p = 0;
+        while (X < Y){
+            p++;
+            X = X + D;
+        }
+    return p;
+    }
+}
+
+
+
+class Solution {
+    public int solution(int x, int y, int d) {
+        return (y - x) / d + ((y - x) % d == 0 ? 0 : 1);
+    }
+}

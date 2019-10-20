@@ -1,0 +1,19 @@
+// you can also use imports, for example:
+// import java.util.*;
+
+// you can write to stdout for debugging purposes, e.g.
+// System.out.println("this is a debug message");
+
+class Solution {
+    public int solution(int N) {
+         int numFactors = 2; //1 and N are factors
+    double sqrtN = Math.sqrt(N);
+    if((sqrtN == Math.ceil(sqrtN))) //If sqrt(N) has no fractional part don't include N itself
+        numFactors=1;
+    for(int i=2; i <= sqrtN; i++) {
+        if(N%i == 0)
+            numFactors +=2; // i and N/i are factors
+    }
+    return numFactors;
+    }
+}
